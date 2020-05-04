@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "./axios/axios";
 import OrderModal from "./orderModal/OrderModal";
-import Spinner from "./Spinner/Spinner";
 
 class Form extends Component {
   state = {
@@ -12,7 +11,6 @@ class Form extends Component {
     city: "Nis",
     mobile: null,
     finnished: false,
-    loading: false,
   };
 
   onSubmit = (e) => {
@@ -37,19 +35,11 @@ class Form extends Component {
   };
 
   order = () => {
-    this.setState({
-      loading: true,
-    });
-
     setTimeout(() => {
       this.setState({
         finnished: false,
       });
     }, 5000);
-
-    this.setState({
-      loading: false,
-    });
   };
 
   render() {

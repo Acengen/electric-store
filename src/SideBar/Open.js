@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Open = (props) => (
   <div className="burger" onClick={() => props.show()}>
@@ -8,5 +9,9 @@ const Open = (props) => (
     ></i>
   </div>
 );
+
+Open.propTypes = {
+  show: PropTypes.func.isRequired,
+};
 
 export default Open;

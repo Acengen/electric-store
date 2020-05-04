@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ProductsItem = ({ product, onClick }) => {
   return (
@@ -21,6 +22,11 @@ const ProductsItem = ({ product, onClick }) => {
       </div>
     </div>
   );
+};
+
+ProductsItem.propTypes = {
+  product: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default React.memo(ProductsItem);
