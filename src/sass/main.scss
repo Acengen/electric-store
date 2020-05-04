@@ -1,0 +1,266 @@
+.container-fluid {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+.total {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(41, 128, 41);
+  color: white;
+}
+
+.selected-products {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.link-to-form {
+  text-align: center;
+  margin-top: 20px;
+  .purchase {
+    text-decoration: none !important;
+    color: white;
+    background-color: green;
+    padding: 10px 20px;
+    border: none;
+  }
+}
+
+.Modal {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  h1 {
+    font-size: 50px;
+  }
+  button {
+    margin: 20px 2px;
+    padding: 10px;
+    border: none;
+    color: white;
+    a {
+      text-decoration: none !important;
+      color: white;
+    }
+  }
+  .danger {
+    background-color: rgb(148, 54, 54);
+    &:hover {
+      background-color: #dbe2ef;
+      color: black;
+    }
+  }
+  .success {
+    background-color: rgb(31, 105, 31);
+    &:hover {
+      background-color: #dbe2ef;
+      color: black;
+    }
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgba(128, 128, 128, 0.116);
+  button {
+    border: none;
+    background-color: #3f72af;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+  }
+  .card {
+    width: 300px;
+    margin: 10px;
+    img {
+      width: 100%;
+      height: 200px;
+    }
+    .card-title {
+      font-size: 20px;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}
+/* Headertext */
+.heade-line {
+  background-image: url("../images/parts-counter-team.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px;
+  h3 {
+    font-size: 3.5rem;
+    color: #dbe2ef;
+  }
+  p {
+    font-size: 0.7rem;
+    color: #dbe2ef;
+  }
+}
+
+/* Selected Products */
+.selected-ones {
+  display: flex;
+  justify-content: center;
+  .card {
+    width: 200px;
+    button {
+      border: none;
+      background-color: #1e3858;
+      color: white;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 15px;
+    }
+    p {
+      font-weight: bold;
+    }
+  }
+}
+/* Sidebar when is >500px width */
+.SideBar {
+  position: fixed;
+  width: 0px;
+  height: 100%;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+
+  a {
+    color: #3f72af;
+    text-decoration: none !important;
+    display: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+    &:hover {
+      color: #dbe2ef;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}
+
+/* Open for burger */
+.open {
+  width: 100px;
+  a {
+    display: block;
+  }
+}
+/* Burger */
+.burger {
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  z-index: 99;
+}
+.form-main {
+  margin: 20px auto;
+  max-width: 400px;
+  form {
+    margin-bottom: 20px;
+    input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    button {
+      text-decoration: none;
+      background-color: #3faf4e;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      margin-top: 10px;
+    }
+    a {
+      text-decoration: none;
+      background-color: #3f72af;
+      color: white;
+      font-weight: bold;
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+}
+.closeSide {
+  float: right;
+  font-weight: bold;
+  padding: 5px;
+  cursor: pointer;
+  color: #3f72af;
+}
+
+/* Order Modal when click on order button in /form */
+
+.order-finnished {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: rgb(22, 105, 20);
+  box-shadow: 2px 2px 2px grey;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 50px;
+}
+
+@media (min-width: 500px) {
+  .SideBar {
+    display: none;
+  }
+  .burger {
+    display: none;
+  }
+  .navbar {
+    background-color: #1e3858;
+  }
+  .navbaritems {
+    a {
+      display: block;
+      font-weight: bold;
+      float: right;
+      padding: 10px;
+      color: #dbe2ef;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .Desktop {
+    display: none;
+  }
+  .form-main {
+    margin-top: 100px;
+  }
+}

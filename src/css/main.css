@@ -1,0 +1,322 @@
+.container-fluid {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.total {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #298029;
+  color: white;
+}
+
+.selected-products {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.link-to-form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link-to-form .purchase {
+  text-decoration: none !important;
+  color: white;
+  background-color: green;
+  padding: 10px 20px;
+  border: none;
+}
+
+.Modal {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}
+
+.Modal h1 {
+  font-size: 50px;
+}
+
+.Modal button {
+  margin: 20px 2px;
+  padding: 10px;
+  border: none;
+  color: white;
+}
+
+.Modal button a {
+  text-decoration: none !important;
+  color: white;
+}
+
+.Modal .danger {
+  background-color: #943636;
+}
+
+.Modal .danger:hover {
+  background-color: #dbe2ef;
+  color: black;
+}
+
+.Modal .success {
+  background-color: #1f691f;
+}
+
+.Modal .success:hover {
+  background-color: #dbe2ef;
+  color: black;
+}
+
+.products {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgba(128, 128, 128, 0.116);
+}
+
+.products button {
+  border: none;
+  background-color: #3f72af;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.products .card {
+  width: 300px;
+  margin: 10px;
+}
+
+.products .card img {
+  width: 100%;
+  height: 200px;
+}
+
+.products .card .card-title {
+  font-size: 20px;
+}
+
+.products .card .price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Headertext */
+.heade-line {
+  background-image: url("../images/parts-counter-team.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 120px;
+}
+
+.heade-line h3 {
+  font-size: 3.5rem;
+  color: #dbe2ef;
+}
+
+.heade-line p {
+  font-size: 0.7rem;
+  color: #dbe2ef;
+}
+
+/* Selected Products */
+.selected-ones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.selected-ones .card {
+  width: 200px;
+}
+
+.selected-ones .card button {
+  border: none;
+  background-color: #1e3858;
+  color: white;
+  font-weight: bold;
+}
+
+.selected-ones .card h3 {
+  font-size: 15px;
+}
+
+.selected-ones .card p {
+  font-weight: bold;
+}
+
+/* Sidebar when is >500px width */
+.SideBar {
+  position: fixed;
+  width: 0px;
+  height: 100%;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  background-color: white;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.SideBar a {
+  color: #3f72af;
+  text-decoration: none !important;
+  display: none;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+}
+
+.SideBar a:hover {
+  color: #dbe2ef;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+/* Open for burger */
+.open {
+  width: 100px;
+}
+
+.open a {
+  display: block;
+}
+
+/* Burger */
+.burger {
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  z-index: 99;
+}
+
+.form-main {
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.form-main form {
+  margin-bottom: 20px;
+}
+
+.form-main form input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.form-main form button {
+  text-decoration: none;
+  background-color: #3faf4e;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  margin-top: 10px;
+}
+
+.form-main form a {
+  text-decoration: none;
+  background-color: #3f72af;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px;
+}
+
+.closeSide {
+  float: right;
+  font-weight: bold;
+  padding: 5px;
+  cursor: pointer;
+  color: #3f72af;
+}
+
+/* Order Modal when click on order button in /form */
+.order-finnished {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #166914;
+  -webkit-box-shadow: 2px 2px 2px grey;
+          box-shadow: 2px 2px 2px grey;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 50px;
+}
+
+@media (min-width: 500px) {
+  .SideBar {
+    display: none;
+  }
+  .burger {
+    display: none;
+  }
+  .navbar {
+    background-color: #1e3858;
+  }
+  .navbaritems a {
+    display: block;
+    font-weight: bold;
+    float: right;
+    padding: 10px;
+    color: #dbe2ef;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .Desktop {
+    display: none;
+  }
+  .form-main {
+    margin-top: 100px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
