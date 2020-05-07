@@ -9,15 +9,11 @@ class Modal extends React.Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("[shouldComponentUpdate]");
     if (nextProps.show !== this.props.show) {
       return true;
     } else {
       return false;
     }
-  }
-  componentDidUpdate() {
-    console.log("[componentDidUpdate]");
   }
 
   render() {

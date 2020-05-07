@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from "./axios/axios";
+
 /* import css */
 import "./css/main.css";
 
@@ -11,7 +12,13 @@ import Form from "./Form";
 import Modal from "./Modal";
 import Navbar from "./Navbar/Navbar";
 import HeadLine from "./HeadLine/HeadLine";
+import Contact from "./contact/Contact";
 import SideBar from "./SideBar/SideBar";
+import SingleProduct from "./SingleProduct";
+import AboutSingleProduct from "./AboutSingleProduct";
+
+/* For customers orders */
+import Customers from "./Customers/Customers";
 
 class App extends Component {
   state = {
@@ -68,9 +75,9 @@ class App extends Component {
     ],
     selectedProdicts: [],
     total: 0,
-    flag: false,
     purchasable: false,
     showSideBar: false,
+    auth: false,
   };
 
   remove = (price, index) => {
@@ -81,7 +88,6 @@ class App extends Component {
     this.setState({
       total: newPrice,
       selectedProdicts: produc,
-      flage: true,
     });
   };
 
@@ -92,13 +98,7 @@ class App extends Component {
     this.setState({
       total: newPrice,
       selectedProdicts: select,
-      flag: true,
     });
-  };
-
-  updateBuyedProducts = () => {
-    const product = { ...this.state.products };
-    console.log(product);
   };
 
   /* Post request to Firebase DB */
@@ -109,11 +109,15 @@ class App extends Component {
     };
     axios
       .post("/products.json", order)
-      .then((respon) => console.log(respon))
+      .then((respon) => console.log("Firebase success"))
       .catch((error) => console.log(error));
     this.setState({
       purchasable: true,
     });
+
+    setTimeout(() => {
+      this.setState({ purchasable: false });
+    }, 5000);
   };
 
   purchasableHandlerCancel = () => {
@@ -135,7 +139,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="/">
         <Container>
           <SideBar
             showSideBar={this.state.showSideBar}
@@ -143,9 +147,12 @@ class App extends Component {
             sideBarClose={this.sideBarClose}
           />
           <Navbar />
+
+          <Route path="/contact" exact component={Contact} />
+
           <Route
-            exact
             path="/"
+            exact
             render={(props) => (
               <Fragment>
                 <HeadLine />
@@ -188,7 +195,25 @@ class App extends Component {
             path="/form"
             exact
             render={(props) => (
-              <Form selectedProdicts={this.state.selectedProdicts} />
+              <Form
+                selectedProdicts={this.state.selectedProdicts}
+                total={this.state.total}
+              />
+            )}
+          />
+          <Route
+            path="/:id"
+            exact
+            render={(props) => (
+              <SingleProduct {...props} products={this.state.products} />
+            )}
+          />
+          <Route path="/customers" exact component={Customers} />
+          <Route
+            path="/:id/about"
+            exact
+            render={(props) => (
+              <AboutSingleProduct {...props} products={this.state.products} />
             )}
           />
         </Container>

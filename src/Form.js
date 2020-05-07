@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from "./axios/axios";
 import OrderModal from "./orderModal/OrderModal";
 
@@ -8,9 +8,10 @@ class Form extends Component {
     name: "",
     Lastname: "",
     zip: null,
-    city: "Nis",
+    city: "",
     mobile: null,
     finnished: false,
+    submitted: false,
   };
 
   onSubmit = (e) => {
@@ -23,9 +24,10 @@ class Form extends Component {
       Mobile: this.state.mobile,
       ProductsOrdered: this.props.selectedProdicts,
     };
-    axios
-      .post("products/customer.json", customers)
-      .then((respon) => this.setState({ finnished: true }));
+    axios.post("products/customer.json", customers).then((respon) => {
+      this.setState({ finnished: true });
+      console.log("Firebase ordered");
+    });
   };
 
   onChange = (e) => {
@@ -38,13 +40,38 @@ class Form extends Component {
     setTimeout(() => {
       this.setState({
         finnished: false,
+        name: "",
+        Lastname: "",
+        zip: null,
+        city: "",
+        mobile: null,
+        submitted: true,
       });
-    }, 5000);
+    }, 2000);
   };
 
   render() {
+    let btnClass = "green";
+    let classes = [];
+    let redirect = null;
+    if (
+      this.state.name === "" ||
+      this.state.Lastname === "" ||
+      this.state.zip === null ||
+      this.state.city === "" ||
+      this.state.mobile === null
+    ) {
+      classes.push(null);
+    } else {
+      classes.push(btnClass);
+    }
+
+    if (this.state.submitted) {
+      redirect = <Redirect to="/" />;
+    }
     return (
       <div className="form-main">
+        {redirect}
         {this.state.finnished ? (
           <OrderModal />
         ) : (
@@ -86,9 +113,16 @@ class Form extends Component {
                 type="number"
                 placeholder="Mobile"
               />
-              <button onClick={() => this.order()} type="submit">
-                Order
-              </button>
+              {this.state.mobile !== null && (
+                <button
+                  className={`order ${classes}`}
+                  onClick={() => this.order()}
+                  type="submit"
+                >
+                  Order
+                </button>
+              )}
+
               <Link to="/">Go back</Link>
             </form>
           </div>

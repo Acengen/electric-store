@@ -6,8 +6,15 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: rgb(41, 128, 41);
+  background-color: #1e3858;
+  padding: 10px;
+
   color: white;
+  z-index: 99;
+  h3 {
+    font-size: 14px;
+    margin: 0;
+  }
 }
 
 .selected-products {
@@ -82,6 +89,10 @@
     color: white;
     font-weight: bold;
     padding: 10px;
+    &:hover {
+      background-color: #dbe2ef;
+      color: rgb(128, 128, 128);
+    }
   }
   .card {
     width: 300px;
@@ -96,6 +107,17 @@
     .price {
       font-weight: bold;
       font-size: 20px;
+    }
+    a {
+      background-color: orange;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      text-decoration: none !important;
+      &:hover {
+        background-color: #dbe2ef;
+        color: rgb(128, 128, 128);
+      }
     }
   }
 }
@@ -143,8 +165,7 @@
 /* Sidebar when is >500px width */
 .SideBar {
   position: fixed;
-  width: 0px;
-  height: 100%;
+  width: 0%;
   z-index: 200;
   left: 0;
   top: 0;
@@ -168,7 +189,7 @@
 
 /* Open for burger */
 .open {
-  width: 100px;
+  width: 100%;
   a {
     display: block;
   }
@@ -188,17 +209,22 @@
     input {
       width: 100%;
       padding: 5px;
-      margin-top: 5px;
+      margin-top: 10px;
     }
 
     button {
       text-decoration: none;
-      background-color: #3faf4e;
-      color: white;
+      color: rgb(102, 101, 101);
       font-weight: bold;
       padding: 10px;
       border: none;
       margin-top: 10px;
+    }
+    .green {
+      background-color: rgb(41, 128, 41);
+      color: white;
+      opacity: 0;
+      animation: djole 0.6s ease forwards;
     }
     a {
       text-decoration: none;
@@ -208,6 +234,14 @@
       display: inline-block;
       padding: 10px;
     }
+  }
+}
+@keyframes djole {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 .closeSide {
@@ -226,7 +260,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  background-color: rgb(22, 105, 20);
+  background-color: rgb(41, 128, 41);
   box-shadow: 2px 2px 2px grey;
   text-align: center;
   color: white;
@@ -234,6 +268,65 @@
   padding: 50px;
 }
 
+/* Single Product */
+.singleProduct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  a {
+    background-color: #1e3858;
+    color: #dbe2ef;
+    padding: 10px;
+    text-decoration: none !important;
+    text-align: center;
+  }
+  .single-product-nav {
+    background-color: rgb(31, 105, 31);
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: link 1s 0.7s forwards ease-in-out;
+    opacity: 0;
+  }
+  @keyframes link {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* customers-order */
+
+.customers-order {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1e3858;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.about-Products {
+  a {
+    background-color: #1e3858;
+    color: #dbe2ef;
+    padding: 10px;
+    text-decoration: none !important;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+/* MEdia Query */
 @media (min-width: 500px) {
   .SideBar {
     display: none;
@@ -243,15 +336,22 @@
   }
   .navbar {
     background-color: #1e3858;
+    display: flex;
+    padding: 20px;
+    overflow: hidden;
   }
   .navbaritems {
     a {
-      display: block;
       font-weight: bold;
-      float: right;
-      padding: 10px;
+      padding: 20px;
       color: #dbe2ef;
       text-decoration: none;
+      font-size: 17px;
+    }
+    .active {
+      color: rgb(41, 128, 41);
+      border-bottom: 10px solid rgb(41, 128, 41);
+      font-size: 20px;
     }
   }
 }
@@ -262,5 +362,26 @@
   }
   .form-main {
     margin-top: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .singleProduct {
+    position: static;
+    top: unset;
+    left: unset;
+    transform: unset;
+    margin-top: 100px;
+
+    .single-product-nav {
+      border-radius: 0px;
+      font-weight: bold;
+      position: unset;
+      transform: translateY(0px);
+      display: block;
+      i {
+        font-size: 25px;
+      }
+    }
   }
 }

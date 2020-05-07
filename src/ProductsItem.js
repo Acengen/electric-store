@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const ProductsItem = ({ product, onClick }) => {
   return (
@@ -19,6 +20,7 @@ const ProductsItem = ({ product, onClick }) => {
           ></span>
         </p>
         <button onClick={() => onClick(product.price, product)}>Buy</button>
+        <Link to={`/${product.id}`}>More </Link>
       </div>
     </div>
   );

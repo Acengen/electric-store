@@ -1,10 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavbarItems = () => (
   <div className="navbaritems">
-    <Link to="/">Home</Link>
-    <Link to="/form">Form</Link>
+    <NavLink to="/" exact>
+      Home
+    </NavLink>
+    <NavLink to="/form" exact>
+      Order Page
+    </NavLink>
+    <NavLink to="/contact" exact>
+      Contact
+    </NavLink>
+    <NavLink to="/customers" exact>
+      Customers Orders
+    </NavLink>
   </div>
 );
 
