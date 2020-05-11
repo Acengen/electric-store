@@ -52,23 +52,91 @@ class Form extends Component {
 
   render() {
     let btnClass = "green";
+    let btnNone = "dont";
+    let inputError = "invalid";
+    let inputSuccess = "valid";
     let classes = [];
+    let inputClasses = [];
     let redirect = null;
     if (
       this.state.name === "" ||
+      this.state.name.length <= 3 ||
       this.state.Lastname === "" ||
       this.state.zip === null ||
+      this.state.zip.length <= 4 ||
       this.state.city === "" ||
       this.state.mobile === null
     ) {
-      classes.push(null);
+      classes.push(btnNone);
+      inputClasses.push(inputError);
     } else {
       classes.push(btnClass);
+      inputClasses.push(inputSuccess);
     }
 
     if (this.state.submitted) {
       redirect = <Redirect to="/" />;
     }
+
+    let orderForm = (
+      <div>
+        <input
+          id="name"
+          name="name"
+          className={`inp ${inputClasses}`}
+          onChange={this.onChange}
+          type="text"
+          placeholder="Firstname"
+          required
+        />
+        <input
+          id="Lastname"
+          name="last"
+          className={`inp ${inputClasses}`}
+          onChange={this.onChange}
+          type="text"
+          placeholder="Lastname"
+          required
+        />
+        <input
+          id="zip"
+          name="zip"
+          className={`inp ${inputClasses}`}
+          onChange={this.onChange}
+          type="number"
+          placeholder="Zip Code"
+          required
+        />
+        <input
+          id="city"
+          name="city"
+          className={`inp ${inputClasses}`}
+          onChange={this.onChange}
+          type="text"
+          placeholder="City"
+          required
+        />
+        <input
+          id="mobile"
+          name="mobile"
+          className={`inp ${inputClasses}`}
+          onChange={this.onChange}
+          type="number"
+          placeholder="Mobile"
+          required
+        />
+
+        <button
+          className={`${classes}`}
+          onClick={() => this.order()}
+          type="submit"
+        >
+          Order
+        </button>
+
+        <Link to="/">Go back</Link>
+      </div>
+    );
     return (
       <div className="form-main">
         {redirect}
@@ -77,54 +145,7 @@ class Form extends Component {
         ) : (
           <div>
             <h3>Order CheckList</h3>
-            <form onSubmit={this.onSubmit}>
-              <input
-                id="name"
-                name="name"
-                onChange={this.onChange}
-                type="text"
-                placeholder="Firstname"
-              />
-              <input
-                id="Lastname"
-                name="last"
-                onChange={this.onChange}
-                type="text"
-                placeholder="Lastname"
-              />
-              <input
-                id="zip"
-                name="zip"
-                onChange={this.onChange}
-                type="number"
-                placeholder="Zip Code"
-              />
-              <input
-                id="city"
-                name="city"
-                onChange={this.onChange}
-                type="text"
-                placeholder="City"
-              />
-              <input
-                id="mobile"
-                name="mobile"
-                onChange={this.onChange}
-                type="number"
-                placeholder="Mobile"
-              />
-              {this.state.mobile !== null && (
-                <button
-                  className={`order ${classes}`}
-                  onClick={() => this.order()}
-                  type="submit"
-                >
-                  Order
-                </button>
-              )}
-
-              <Link to="/">Go back</Link>
-            </form>
+            <form onSubmit={this.onSubmit}>{this.props.auth && orderForm}</form>
           </div>
         )}
       </div>

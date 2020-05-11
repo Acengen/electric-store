@@ -101,28 +101,17 @@ class App extends Component {
     });
   };
 
-  /* Post request to Firebase DB */
   purchasableHandler = () => {
-    const order = {
-      selectedProdicts: this.state.selectedProdicts,
-      total: this.state.total,
-    };
-    axios
-      .post("/products.json", order)
-      .then((respon) => console.log("Firebase success"))
-      .catch((error) => console.log(error));
     this.setState({
       purchasable: true,
+      auth: true,
     });
-
-    setTimeout(() => {
-      this.setState({ purchasable: false });
-    }, 5000);
   };
 
   purchasableHandlerCancel = () => {
     this.setState({
       purchasable: false,
+      selectedProdicts: [],
     });
   };
 
@@ -138,6 +127,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.auth);
     return (
       <Router basename="/">
         <Container>
@@ -196,8 +186,9 @@ class App extends Component {
             exact
             render={(props) => (
               <Form
-                selectedProdicts={this.state.selectedProdicts}
+                auth={this.state.auth}
                 total={this.state.total}
+                selectedProdicts={this.state.selectedProdicts}
               />
             )}
           />

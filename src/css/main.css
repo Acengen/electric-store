@@ -271,21 +271,14 @@
   margin-top: 10px;
 }
 
-.form-main form button {
+.form-main form .order {
   text-decoration: none;
   color: #666565;
   font-weight: bold;
   padding: 10px;
   border: none;
   margin-top: 10px;
-}
-
-.form-main form .green {
-  background-color: #298029;
-  color: white;
-  opacity: 0;
-  -webkit-animation: djole 0.6s ease forwards;
-          animation: djole 0.6s ease forwards;
+  display: none;
 }
 
 .form-main form a {
@@ -295,6 +288,33 @@
   font-weight: bold;
   display: inline-block;
   padding: 10px;
+}
+
+/* Show/Hide button in form after/before validation check */
+.green {
+  background-color: #298029;
+  color: white;
+  opacity: 0;
+  -webkit-animation: djole 0.6s ease forwards;
+          animation: djole 0.6s ease forwards;
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  margin-top: 10px;
+}
+
+.dont {
+  display: none;
+}
+
+/* Input validiti */
+.valid {
+  border: 1px solid #298029;
+}
+
+.invalid {
+  border: 1px solid crimson;
 }
 
 @-webkit-keyframes djole {

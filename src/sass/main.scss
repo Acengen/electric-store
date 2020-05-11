@@ -212,20 +212,16 @@
       margin-top: 10px;
     }
 
-    button {
+    .order {
       text-decoration: none;
       color: rgb(102, 101, 101);
       font-weight: bold;
       padding: 10px;
       border: none;
       margin-top: 10px;
+      display: none;
     }
-    .green {
-      background-color: rgb(41, 128, 41);
-      color: white;
-      opacity: 0;
-      animation: djole 0.6s ease forwards;
-    }
+
     a {
       text-decoration: none;
       background-color: #3f72af;
@@ -236,6 +232,30 @@
     }
   }
 }
+/* Show/Hide button in form after/before validation check */
+.green {
+  background-color: rgb(41, 128, 41);
+  color: white;
+  opacity: 0;
+  animation: djole 0.6s ease forwards;
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  margin-top: 10px;
+}
+.dont {
+  display: none;
+}
+/* Input validiti */
+
+.valid {
+  border: 1px solid rgb(41, 128, 41);
+}
+.invalid {
+  border: 1px solid crimson;
+}
+
 @keyframes djole {
   from {
     opacity: 0;
